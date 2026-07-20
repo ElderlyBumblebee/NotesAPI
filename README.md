@@ -1,0 +1,2 @@
+# NotesAPI
+Trainee FastAPI project
