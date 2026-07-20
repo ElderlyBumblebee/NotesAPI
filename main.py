@@ -24,3 +24,8 @@ def create_user(user_in: UserCreate, db: SessionLocal= Depends(get_db)):
     db.commit()
     db.refresh(new_user)
     return new_user
+
+
+@app.put("/users")
+def update_user():
+    return {"Just":"Hole"}

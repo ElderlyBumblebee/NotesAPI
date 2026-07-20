@@ -18,5 +18,3 @@ class User(Base):
     
 Base.metadata.create_all(bind=engine)
 
-
-print("Database and tables created!")

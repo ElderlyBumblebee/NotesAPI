@@ -8,10 +8,15 @@ class UserSchema(BaseModel):
 class UserCreate(UserSchema):
     pass
 
+class UserUpdate(UserSchema):
+    pass
 class UserResponse(UserSchema):
     id : int 
+
+
     
     class Config:
         from_attributes = True
+
 
 
