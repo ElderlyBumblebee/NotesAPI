@@ -1,20 +1,20 @@
-from sqlalchemy import create_engine, Column, Integer, String, Date
-from sqlalchemy.orm import declarative_base, sessionmaker
-
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker, Mapped, mapped_column, DeclarativeBase
 
 DB_URL = "sqlite:///fastapi.db"
 engine = create_engine(DB_URL, echo=True)
 SessionLocal = sessionmaker(autoflush=False, bind=engine)
 
-Base = declarative_base()
+class Base(DeclarativeBase):
+    pass
 
 class User(Base):
     __tablename__ = "users"
-    
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String)
-    phone_number = Column(String)
-    email = Column(String)
-    
-Base.metadata.create_all(bind=engine)
 
+    id: Mapped[int] = mapped_column(primary_key=True, index=True)
+    name: Mapped[str]
+    phone_number: Mapped[str]
+    email: Mapped[str]
+    password: Mapped[str]
+
+Base.metadata.create_all(bind=engine)
