@@ -9,12 +9,13 @@ class UserCreate(UserSchema):
     password: str  # нужен для регистрации, но не для ответа
 
 class UserUpdate(UserSchema):
-    id: int
-    class Config:
-            from_attributes = True
+    pass
 
 class UserDelete(UserSchema):
-    pass
+    id: int
+    
+    class Config:
+        from_attributes = True
 class UserResponse(UserSchema):
     id: int
     class Config:
